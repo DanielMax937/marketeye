@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { GoogleGenAI, LiveSession, LiveServerMessage, Modality } from '@google/genai';
+import { GoogleGenAI, LiveServerMessage, Modality } from '@google/genai';
 import { 
   GEMINI_API_KEY, 
   MODEL_NAME, 
@@ -11,6 +11,9 @@ import {
 } from '../constants';
 import { AppState } from '../types';
 import { pcmToBase64, decodeAudioData, base64ToUint8Array, blobToBase64 } from '../utils/audio';
+
+// Define LiveSession as any since it is not exported by the SDK
+type LiveSession = any;
 
 export const useGeminiLive = () => {
   const [status, setStatus] = useState<AppState>(AppState.IDLE);
@@ -70,11 +73,8 @@ export const useGeminiLive = () => {
     // Close session
     if (sessionRef.current) {
       try {
-        // There is no explicit close() on the session object in the current SDK types shown,
-        // but typically we stop sending data. The prompt guidance says "Use session.close()".
-        // If typescript complains, we might need to cast or just let GC handle it, 
-        // but following guidance:
-        (sessionRef.current as any).close?.();
+        // Use session.close() as per guidelines
+        sessionRef.current.close();
       } catch (e) {
         console.warn("Error closing session", e);
       }

@@ -7,7 +7,7 @@ interface Props {
 
 const AudioVisualizer: React.FC<Props> = ({ isActive, volume }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const requestRef = useRef<number>();
+  const requestRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     const canvas = canvasRef.current;
