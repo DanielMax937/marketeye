@@ -1,0 +1,8 @@
+{
+  "name": "MarketEye",
+  "description": "An accessible AI shopping assistant for visually impaired users using Gemini Live API.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
