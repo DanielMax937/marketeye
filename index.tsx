@@ -13,7 +13,7 @@ root.render(
     <App />
   </React.StrictMode>
 );
-const cloudflareAnalyticsToken = import.meta.env.VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN;
+const cloudflareAnalyticsToken = (import.meta as any).env?.VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN;
 if (cloudflareAnalyticsToken) {
   const script = document.createElement('script');
   script.defer = true;
