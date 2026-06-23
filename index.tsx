@@ -13,3 +13,11 @@ root.render(
     <App />
   </React.StrictMode>
 );
+const cloudflareAnalyticsToken = import.meta.env.VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN;
+if (cloudflareAnalyticsToken) {
+  const script = document.createElement('script');
+  script.defer = true;
+  script.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  script.dataset.cfBeacon = JSON.stringify({ token: cloudflareAnalyticsToken });
+  document.body.appendChild(script);
+}
