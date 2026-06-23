@@ -1,0 +1,9 @@
+# MarketEye
+
+MarketEye is a public AI shopping assistant landing site. It demonstrates camera-assisted product recognition, live shopping help, and accessible high-contrast shopping guidance.
+
+## Public Pages
+- Home: https://marketeye-swart.vercel.app/
+
+Search engines and AI crawlers may crawl the public marketing page. There are no private app or account pages in the sitemap.
+
